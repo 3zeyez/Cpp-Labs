@@ -9,7 +9,7 @@ int main()
     // declaration des variables utilisees dans notre programme
     int i, n, s; 
     int arr[100];
-    cout << "***Somme des elements d'un tableau***\n";
+    cout << "***Somme des éléments d'un tableau***\n";
     cout << "Saisir n = ";
     cin >> n;
     // controle de saisie du n (2<=n<=100)
@@ -25,16 +25,28 @@ int main()
         s += arr[i];
     }
 
+    // tableau avant tri
+    cout << "tableau avant tri = {";
+    for (i = 0; i < n; ++i) {
+        if (i == n - 1) {
+            cout << arr[i] << "}\n";
+        }
+        else {
+            cout << arr[i] << ", ";
+        }
+    }
+
     // tri du tableau en utilisant tri a bulle
     bool ok = true;
     int n1 = n;
     while (ok) {
+        ok = false;
         for (i = 0; i < n1 - 1; ++i) {
             if (arr[i] > arr[i + 1]) {
                 int aux = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = aux;
-                ok = false;
+                ok = true;
             }
         }
         n1--;
@@ -43,7 +55,7 @@ int main()
     int max = arr[0]; // initialisation du maximum
     int min = arr[0]; // initialisation du minimum
     // affichage au cour du recherche du max et min
-    cout << "Tableau = {";
+    cout << "Tableau trié = {";
     for (i = 0; i < n; ++i) {
         if (arr[i] > max) {
             max = arr[i];
